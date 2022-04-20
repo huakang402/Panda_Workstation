@@ -1,0 +1,71 @@
+<launch>
+
+  <!-- ***************************** The launch file param ***************************** -->
+  <arg name="paused" default="true"/>
+
+  <!-- ***************************** Load the empty world ***************************** -->
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" >
+    <arg name="paused" value="$(arg paused)"/>
+  </include>
+
+  <!-- ***************************** Load the empty world ***************************** -->
+
+
+  <!-- ***************************** add table1 ***************************** --> 
+  <node
+    name="spawn_table1"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-file $(find panda_world)/models/Table/model.sdf -sdf -x 0 -y 0 -z 0 -R 0 -P 0 -Y 1.5708 -model model_table1" respawn="false" output="screen" />
+
+  <!-- ***************************** add table1 ***************************** -->
+
+  <!-- ***************************** add table2 ***************************** -->
+  <node
+    name="spawn_table2"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-file $(find panda_world)/models/Table/model.sdf -sdf -x 0.794 -y 0 -z 0 -R 0 -P 0 -Y 1.5708 -model model_table2" respawn="false" output="screen" />
+
+  <!-- ***************************** add table2 ***************************** -->  
+
+  <!-- ***************************** add Avengers_Thor_PLlrpYniaeB ***************************** -->
+  <node
+    name="spawn_Avengers_Thor_PLlrpYniaeB"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-file $(find panda_world)/models/Avengers_Thor_PLlrpYniaeB/model.sdf -sdf -x 0.794 -y 0.5 -z 1.025 -R 0 -P 0 -Y 0 -model model_Avengers_Thor_PLlrpYniaeB" respawn="false" output="screen" />
+
+  <!-- ***************************** add Avengers_Thor_PLlrpYniaeB ***************************** -->
+
+  
+  <!-- ***************************** add Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure ***************************** -->
+  <node
+    name="spawn_Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-file $(find panda_world)/models/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure/model.sdf -sdf -x 0.794 -y 0 -z 1.025 -model model_Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure" respawn="false" output="screen" />
+
+  <!-- ***************************** add Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure ***************************** -->
+
+
+  <!-- ***************************** add My_Little_Pony_Princess_Celestia ***************************** -->
+  
+  <node
+    name="spawn_My_Little_Pony_Princess_Celestia"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-file $(find panda_world)/models/My_Little_Pony_Princess_Celestia/model.sdf -sdf -x 0.794 -y -0.5 -z 1.025 -R 0 -P 0 -Y 1.5708 -model model_My_Little_Pony_Princess_Celestia" respawn="false" output="screen" />
+
+  <!-- ***************************** add panda world ***************************** -->
+
+
+  <node
+    name="fake_joint_calibration"
+    pkg="rostopic"
+    type="rostopic"
+    args="pub /calibrated std_msgs/Bool true" />
+
+</launch>
+

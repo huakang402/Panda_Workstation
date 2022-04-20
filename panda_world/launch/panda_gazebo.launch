@@ -1,0 +1,9 @@
+<launch>
+    <include file = "$(find panda_moveit_config)/launch/demo_gazebo.launch"/>
+   <!-- <node pkg="link_controller" type="link_controller_one.py" name="link_ctrl_one"/>-->
+   <!-- <node pkg="link_controller" type="link_controller_assembly.py" name="link_ctrl_assembly"/>-->
+
+</launch>
+
+
+

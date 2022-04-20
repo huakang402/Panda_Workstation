@@ -1,0 +1,35 @@
+model {
+  file: "model.sdf"
+}
+name: "My_Little_Pony_Princess_Celestia"
+description: "My Little Pony Princess Celestia"
+version: 1
+authors {
+  name: "Google"
+  email: "scanned-objects@google.com"
+}
+legal {
+  copyright: "Copyright 2020 Google LLC."
+  license: "Creative Commons Attribution 4.0 International"
+}
+annotations {
+  key: "brand"
+  value: "My Little Pony"
+}
+annotations {
+  key: "gtin"
+  value: "653569779704"
+}
+annotations {
+  key: "sku"
+  value: "653569779704-cloned-20141211161906891828"
+}
+compatibilities {
+  name: "Gazebo"
+  version {
+    major: 11
+  }
+}
+categories {
+  first: "Toys"
+}
