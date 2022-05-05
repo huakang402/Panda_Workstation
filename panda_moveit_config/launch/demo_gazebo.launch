@@ -10,6 +10,8 @@
 
   <arg name="load_robot_description" default="false"/>
 
+  <arg name="use_moveit" default="false"/>
+
   <!--
   By default, hide joint_state_publisher's GUI
 
@@ -30,7 +32,8 @@
   <include file="$(find panda_moveit_config)/launch/gazebo.launch" >
     <arg name="paused" value="$(arg paused)"/>
     <arg name="gazebo_gui" value="$(arg gazebo_gui)"/>
-     <arg name="urdf_path" value="$(arg urdf_path)"/>
+    <arg name="urdf_path" value="$(arg urdf_path)"/>
+    <arg name="use_moveit" value="$(arg use_moveit)"/>
   </include>
   
   <!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
@@ -53,7 +56,7 @@
   <node name="joint_state_desired_publisher" pkg="topic_tools" type="relay" args="joint_states joint_states_desired" />
 
   <!-- Run the main MoveIt! executable without trajectory execution (we do not have controllers configured by default) -->
-  <include file="$(find panda_moveit_config)/launch/move_group.launch">
+  <include file="$(find panda_moveit_config)/launch/move_group.launch" if="$(arg use_moveit)">
     <arg name="allow_trajectory_execution" value="true"/>
     <arg name="fake_execution" value="false"/>
     <arg name="info" value="true"/>
@@ -62,7 +65,7 @@
   </include>
 
   <!-- Run Rviz and load the default config to see the state of the move_group node -->
-  <include file="$(find panda_moveit_config)/launch/moveit_rviz.launch">
+  <include file="$(find panda_moveit_config)/launch/moveit_rviz.launch" if="$(arg use_moveit)">
     <arg name="rviz_config" value="$(find panda_moveit_config)/launch/moveit.rviz"/>
     <arg name="debug" value="$(arg debug)"/>
   </include>

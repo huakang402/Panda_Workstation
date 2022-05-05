@@ -4,6 +4,8 @@
   <arg name="gazebo_gui" default="true"/>
   <arg name="urdf_path" default="$(find franka_panda_description)/robots/panda_arm_hand.urdf.xacro"/>
 
+  <arg name="use_moveit" default="false"/>
+
   <!-- startup simulated world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
    <!-- <arg name="world_name" default="worlds/empty.world"/>-->
@@ -20,6 +22,6 @@
   <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model robot -x 0 -y 0 -z 1.025"
     respawn="false" output="screen" />
 
-  <include file="$(find panda_moveit_config)/launch/ros_controllers.launch"/>
+  <include file="$(find panda_moveit_config)/launch/ros_controllers.launch" if="$(arg use_moveit)"/>
 
 </launch>

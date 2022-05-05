@@ -3,7 +3,7 @@
   <xacro:arg name="robot_name" default="panda"/>
   <xacro:arg name="load_gripper" default="true"/>
   <xacro:arg name="load_gazebo" default="true"/>
-  <xacro:arg name="use_gazebo_control" default="false"/>
+  <xacro:arg name="use_gazebo_control" default="true"/>
   
   <xacro:include filename="$(find franka_panda_description)/robots/panda_arm.xacro"/>
 

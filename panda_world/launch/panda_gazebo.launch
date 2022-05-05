@@ -1,5 +1,11 @@
 <launch>
-    <include file = "$(find panda_moveit_config)/launch/demo_gazebo.launch"/>
+
+  <arg name="use_moveit" default="true"/>
+
+  <include file = "$(find panda_moveit_config)/launch/demo_gazebo.launch">
+    <arg name="use_moveit" value="$(arg use_moveit)"/>
+  </include>
+
    <!-- <node pkg="link_controller" type="link_controller_one.py" name="link_ctrl_one"/>-->
    <!-- <node pkg="link_controller" type="link_controller_assembly.py" name="link_ctrl_assembly"/>-->
 
