@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <name>panda_control</name>
+  <version>0.0.1</version>
+  <description>
+    panda_control package .
+  </description>
+
+  <maintainer email="huakang402@gmail.com">
+     huakang402
+  </maintainer>
+  <license>Apache 2.0</license>
+  <author>huakang402</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>panda_moveit_config</build_depend>
+  <run_depend>panda_moveit_config</run_depend>
+
+</package>
