@@ -68,6 +68,7 @@ class PandaMoveit:
             "Use group.set_end_effector_link() method to change default EE.".format(self._default_ee))
 
         self._arm_group.set_max_velocity_scaling_factor(0.3)
+        self._hand_group.set_max_velocity_scaling_factor(0.3)
 
     def move_joint(self, j1, j2, j3, j4, j5, j6, j7):
         positions = [j1,j2,j3,j4,j5,j6,j7]
@@ -119,7 +120,7 @@ class PandaMoveit:
         
         self._hand_group.set_joint_value_target(positions)
         self._hand_group.go(wait = wait)
-#       rospy.sleep(1)
+       # rospy.sleep(1)
         rospy.loginfo("[move_finger] Current positions: {}".format(self._hand_group.get_current_joint_values()))
 
         if wait:
@@ -147,7 +148,7 @@ class PandaMoveit:
 
         return ret
 
-    def open_finger(self, wait = True):
+    def open_finger(self, wait = False):
         positions = [0.035, 0.035]
         rospy.loginfo("[open_finger] Starting positions: {}".format(self._hand_group.get_current_joint_values()))
         rospy.loginfo("[open_finger] Goal positions: {}".format(positions))

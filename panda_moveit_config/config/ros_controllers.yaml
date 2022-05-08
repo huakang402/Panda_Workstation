@@ -54,8 +54,8 @@ panda_hand_controller:
         - panda_finger_joint2
 
     gains:
-        panda_finger_joint1: { p: 5, d: 3.0, i: 0.01, i_clamp: 1 }
-        panda_finger_joint2: { p: 5, d: 3.0, i: 0.01, i_clamp: 1 }
+        panda_finger_joint1: { p: 1000, d: 100.0, i: 0.03, i_clamp: 100 }
+        panda_finger_joint2: { p: 1000, d: 100.0, i: 0.04, i_clamp: 100 }
 
     state_publish_rate: 25
 
