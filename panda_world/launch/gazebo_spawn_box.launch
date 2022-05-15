@@ -1,0 +1,34 @@
+<launch>
+
+  <!-- ***************************** add box_1 ***************************** -->
+  
+  <node
+    name="spawn_box_1"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-file $(find panda_world)/models/box/model.sdf -sdf -x 0.2 -y 0.25 -z 1.025 -R 0 -P 0 -Y 0 -model model_box_1" respawn="false" output="screen" />
+
+  <!-- ***************************** add box_1 ***************************** -->
+
+  <!-- ***************************** add box_2 ***************************** -->
+  
+  <node
+    name="spawn_box_2"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-file $(find panda_world)/models/box/model.sdf -sdf -x 0.35 -y -0.0 -z 1.025 -R 0 -P 0 -Y 0.785 -model model_box_2" respawn="false" output="screen" />
+
+  <!-- ***************************** add box_2 ***************************** -->
+
+  <!-- ***************************** add box_3 ***************************** -->
+  
+  <node
+    name="spawn_box_3"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-file $(find panda_world)/models/box/model.sdf -sdf -x 0.3 -y -0.4 -z 1.025 -R 0 -P 0 -Y 0.785 -model model_box_3" respawn="false" output="screen" />
+
+  <!-- ***************************** add box_3 ***************************** -->
+
+</launch>
+

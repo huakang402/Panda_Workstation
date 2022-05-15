@@ -1,0 +1,22 @@
+<launch>
+
+  <!-- ***************************** add table1 ***************************** --> 
+  <node
+    name="spawn_table1"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-file $(find panda_world)/models/Table/model.sdf -sdf -x 0 -y 0 -z 0 -R 0 -P 0 -Y 1.5708 -model model_table1" respawn="false" output="screen" />
+
+  <!-- ***************************** add table1 ***************************** -->
+
+  <!-- ***************************** add table2 ***************************** -->
+  <node
+    name="spawn_table2"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-file $(find panda_world)/models/Table/model.sdf -sdf -x 0.794 -y 0 -z 0 -R 0 -P 0 -Y 1.5708 -model model_table2" respawn="false" output="screen" />
+
+  <!-- ***************************** add table2 ***************************** -->  
+
+</launch>
+

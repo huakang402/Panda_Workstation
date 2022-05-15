@@ -1,0 +1,50 @@
+<launch>
+
+  <!-- ***************************** The launch file param ***************************** -->
+  <arg name="paused" default="true"/>
+  <arg name="spawn_table" default="true"/>
+  <arg name="spawn_box" default="true"/>
+  <arg name="spawn_toy" default="true"/>
+
+
+  <!-- ***************************** Load the empty world ***************************** -->
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" >
+    <arg name="paused" value="$(arg paused)"/>
+  </include>
+
+  <!-- ***************************** Load the empty world ***************************** -->
+
+
+  <!-- ***************************** Spawn table ***************************** -->
+
+  <include file="$(find panda_world)/launch/gazebo_spawn_table.launch" if="$(arg spawn_table)">
+  </include>
+
+  <!-- ***************************** Spawn table ***************************** -->
+
+
+  <!-- ***************************** Spawn box ***************************** -->
+
+  <include file="$(find panda_world)/launch/gazebo_spawn_box.launch" if="$(arg spawn_box)">
+  </include>
+
+  <!-- ***************************** Spawn box ***************************** -->
+
+  
+  <!-- ***************************** Spawn toy ***************************** -->
+
+  <include file="$(find panda_world)/launch/gazebo_spawn_toy.launch" if="$(arg spawn_toy)">
+  </include>
+
+  <!-- ***************************** Spawn toy ***************************** -->
+
+
+  <node
+    name="fake_joint_calibration"
+    pkg="rostopic"
+    type="rostopic"
+    args="pub /calibrated std_msgs/Bool true" />
+
+</launch>
+

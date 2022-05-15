@@ -11,6 +11,9 @@
   <arg name="load_robot_description" default="false"/>
 
   <arg name="use_moveit" default="false"/>
+  <arg name="load_controller" default="false"/>
+  <arg name="world_name" default="panda_workstation.world"/>
+  <arg name="use_rviz" default="false"/>
 
   <!--
   By default, hide joint_state_publisher's GUI
@@ -34,6 +37,8 @@
     <arg name="gazebo_gui" value="$(arg gazebo_gui)"/>
     <arg name="urdf_path" value="$(arg urdf_path)"/>
     <arg name="use_moveit" value="$(arg use_moveit)"/>
+    <arg name="world_name" value="$(arg world_name)"/>
+    <arg name="load_controller" value="$(arg load_controller)"/>
   </include>
   
   <!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
@@ -65,7 +70,7 @@
   </include>
 
   <!-- Run Rviz and load the default config to see the state of the move_group node -->
-  <include file="$(find panda_moveit_config)/launch/moveit_rviz.launch" if="$(arg use_moveit)">
+  <include file="$(find panda_moveit_config)/launch/moveit_rviz.launch" if="$(arg use_rviz)">
     <arg name="rviz_config" value="$(find panda_moveit_config)/launch/moveit.rviz"/>
     <arg name="debug" value="$(arg debug)"/>
   </include>

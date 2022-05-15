@@ -18,6 +18,17 @@ def main():
     rospy.loginfo("-----------------------------------")
 
     # Add user control command here.
+    panda.reset_joint()
+    panda.open_finger()
+    panda.move_pose([0.64, 0.0, 0.42, 3.14, 0, 0])
+    panda.move_ee_pos(0.64, 0.0, 0.328)
+    panda.move_finger(0.035, 0.035)
+    panda.move_pose([0.64, 0.0, 0.42, 3.14, 0, 3.14])
+    panda.move_ee_pos(0.65, 0.42, 0.42)
+    panda.move_ee_pos(0.65, 0.42, 0.335)
+    panda.open_finger()
+    panda.move_ee_pos(0.65, 0.42, 0.42)
+    panda.reset_joint()
 
     rospy.loginfo("------------------------------------")
     rospy.loginfo("Finish panda moveit control script.")
